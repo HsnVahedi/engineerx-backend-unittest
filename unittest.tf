@@ -37,7 +37,7 @@ resource "kubernetes_pod" "unittest" {
 
         value_from {
           secret_key_ref {
-            name = "postgres-password"
+            name = kubernetes_secret.postgres_password.metadata[0].name 
             key  = "password"
           }
         }

@@ -22,7 +22,7 @@ pipeline {
             }
             post {
                 always {
-                    sh './terraform destroy --auto-approve'
+                    sh './terraform destroy -var test_number=${env.BUILD_ID} --auto-approve'
                 }
             }
         }

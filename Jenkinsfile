@@ -6,12 +6,17 @@ pipeline {
         }
     }
     stages {
-        stage('Deploy Unittest') {
+        stage('Configure kubernetes config file') {
             steps {
                 sh 'cd /root && cp -r .kubecopy .kube'
                 sh 'cd /root/.kube && rm config && mv minikube.config config'
-                sh 'cd /root/kubectl && ./kubectl get namespaces'
             }
         } 
+        stage('Deploy Backend Unittest') {
+            steps {
+                sh 'cp /root/terraform/terraform .'
+                sh './terraform version'
+            }
+        }
     }
 }

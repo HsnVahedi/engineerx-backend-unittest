@@ -25,7 +25,7 @@ pipeline {
             }
             post {
                 always {
-                    sh "./terraform destroy -var test_number=${env.BUILD_ID} --auto-approve"
+                    sh "./terraform destroy -var test_number=${env.BUILD_ID} -var backend_version=${params.BACKEND_VERSION} --auto-approve"
                 }
             }
         }

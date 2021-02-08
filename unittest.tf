@@ -1,6 +1,10 @@
+variable "test_number" {
+  type = number 
+}
+
 resource "kubernetes_pod" "unittest" {
   metadata {
-    name      = "unittest"
+    name      = "unittest-${var.test_number}"
     namespace = "unittest"
 
     labels = {
@@ -102,7 +106,7 @@ resource "kubernetes_pod" "unittest" {
 
 resource "kubernetes_secret" "postgres_password" {
   metadata {
-    name      = "postgres-password"
+    name      = "postgres-password-${var.test_number}"
     namespace = "unittest"
     labels = {
       role = "deployment"

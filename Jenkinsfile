@@ -16,8 +16,8 @@ pipeline {
         } 
         stage('Deploy Backend Unittest') {
             steps {
-                sh './kubectl get pods --all-namespaces'
                 sh './terraform init'
+                sh "./terraform apply -var test_number=${env.BUILD_ID}"
             }
         }
     }

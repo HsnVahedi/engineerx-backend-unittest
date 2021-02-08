@@ -2,6 +2,10 @@ variable "test_number" {
   type = number 
 }
 
+variable "backend_version" {
+  type = number 
+}
+
 resource "kubernetes_pod" "unittest" {
   metadata {
     name      = "unittest-${var.test_number}"
@@ -20,7 +24,7 @@ resource "kubernetes_pod" "unittest" {
 
     container {
       name    = "backend"
-      image   = "hsndocker/backend-unittest:latest"
+      image   = "hsndocker/backend-unittest-${var.backend_version}:latest"
       command = ["bash"]
       args    = ["start.sh"]
 
@@ -76,7 +80,7 @@ resource "kubernetes_pod" "unittest" {
 
     container {
       name  = "postgres"
-      image = "hsndocker/backend-postgres:latest"
+      image = "hsndocker/backend-postgres-${var.backend_version}:latest"
 
       port {
         container_port = 5432

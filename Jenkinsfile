@@ -5,6 +5,9 @@ pipeline {
             args '-u root:root -v /home/hossein/.kube:/root/.kubecopy:ro -v /home/hossein/.minikube:/root/.minikube:ro'
         }
     }
+    parameters {
+        string(name: 'BACKEND_VERSION')
+    }
     stages {
         stage('Configure kubectl and terraform') {
             steps {
@@ -17,7 +20,7 @@ pipeline {
         stage('Deploy Backend Unittest') {
             steps {
                 sh './terraform init'
-                sh "./terraform apply -var test_number=${env.BUILD_ID} --auto-approve"
+                sh "./terraform apply -var test_number=${env.BUILD_ID} -var backend_version=${params.BACKEND_VERSION} --auto-approve"
                 sh "./kubectl wait --for=condition=ready --timeout=300000s -n unittest pod/unittest-${env.BUILD_ID}" 
             }
             post {

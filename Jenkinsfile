@@ -9,8 +9,9 @@ pipeline {
         stage('Deploy Unittest') {
             steps {
                 sh 'cd /root && mkdir .kube && cp -r .kubecopy .kube'
-                sh 'cd /root/.kube && rm config && mv minikube.config config'
-                sh 'cd /root/kubectl && ./kubectl version'
+                sh 'cd /root && ls -a'
+                // sh 'cd /root/.kube && rm config && mv minikube.config config'
+                // sh 'cd /root/kubectl && ./kubectl version'
             }
         } 
     }

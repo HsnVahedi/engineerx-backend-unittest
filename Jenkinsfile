@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'hsndocker/cluster-control:latest'
-            // args '-u root:root'
+            args '-u root:root'
         }
     }
     stages {

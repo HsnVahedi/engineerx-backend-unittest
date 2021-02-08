@@ -6,15 +6,18 @@ pipeline {
         }
     }
     stages {
-        stage('Configure kubernetes config file') {
+        stage('Configure kubectl and terraform') {
             steps {
+                echo '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+                sh 'ls -a'
+                echo '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
                 sh 'cd /root && cp -r .kubecopy .kube'
                 sh 'cd /root/.kube && rm config && mv minikube.config config'
+                sh 'cp /root/terraform/terraform .'
             }
         } 
         stage('Deploy Backend Unittest') {
             steps {
-                sh 'cp /root/terraform/terraform .'
                 sh './terraform init'
             }
         }

@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh './terraform init'
                 sh "./terraform apply -var test_number=${env.BUILD_ID} --auto-approve"
-                // sh 'sleep 300'
+                sh "./kubectl wait --for=condition=ready --timeout=300000s -n unittest pod/unittest-${env.BUILD_ID}" 
             }
             post {
                 always {

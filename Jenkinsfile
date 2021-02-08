@@ -18,6 +18,12 @@ pipeline {
             steps {
                 sh './terraform init'
                 sh "./terraform apply -var test_number=${env.BUILD_ID} --auto-approve"
+                // sh 'sleep 300'
+            }
+            post {
+                always {
+                    sh './terraform destroy --auto-approve'
+                }
             }
         }
     }

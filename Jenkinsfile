@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy Backend Unittest') {
             steps {
                 sh 'cp /root/terraform/terraform .'
-                sh './terraform version'
+                sh './terraform init'
             }
         }
     }

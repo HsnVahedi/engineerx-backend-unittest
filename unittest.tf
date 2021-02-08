@@ -1,11 +1,3 @@
-variable "test_number" {
-  type = number 
-}
-
-variable "backend_version" {
-  type = number 
-}
-
 resource "kubernetes_pod" "unittest" {
   metadata {
     name      = "unittest-${var.test_number}"

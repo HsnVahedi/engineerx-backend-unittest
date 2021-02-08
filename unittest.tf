@@ -24,7 +24,7 @@ resource "kubernetes_pod" "unittest" {
 
     container {
       name    = "backend"
-      image   = "hsndocker/backend-unittest-${var.backend_version}:latest"
+      image   = "hsndocker/backend-unittest:${var.backend_version}"
       command = ["bash"]
       args    = ["start.sh"]
 
@@ -80,7 +80,7 @@ resource "kubernetes_pod" "unittest" {
 
     container {
       name  = "postgres"
-      image = "hsndocker/backend-postgres-${var.backend_version}:latest"
+      image = "hsndocker/backend-postgres:${var.backend_version}"
 
       port {
         container_port = 5432

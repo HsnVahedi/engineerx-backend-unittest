@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy Backend Unittest') {
             steps {
                 sh './terraform init'
-                sh "./terraform apply -var test_number=${env.BUILD_ID}"
+                sh "./terraform apply -var test_number=${env.BUILD_ID} --auto-approve"
             }
         }
     }

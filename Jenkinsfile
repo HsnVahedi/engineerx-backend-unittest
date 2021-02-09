@@ -6,7 +6,7 @@ pipeline {
         }
     }
     parameters {
-        string(name: 'BACKEND_VERSION')
+        string(name: 'BACKEND_VERSION', defaultValue: 'latest')
     }
     stages {
         stage('Configure kubectl and terraform') {

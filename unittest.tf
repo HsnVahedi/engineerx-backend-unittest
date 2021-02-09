@@ -57,16 +57,6 @@ resource "kubernetes_pod" "unittest" {
         period_seconds        = 3
       }
 
-      readiness_probe {
-        http_get {
-          path = "/readiness"
-          port = "8000"
-        }
-
-        initial_delay_seconds = 3
-        period_seconds        = 3
-      }
-
       #   image_pull_policy = "Never"
     }
 

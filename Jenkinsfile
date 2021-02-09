@@ -29,5 +29,12 @@ pipeline {
                 }
             }
         }
+        stage('Invoke Deployment to Production') {
+            steps {
+                build job: 'engineerx-deployment', parameters: [
+                    string(name: "BACKEND_VERSION", value: "${env.BUILD_ID}")
+                ]
+            }
+        }
     }
 }

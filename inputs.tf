@@ -3,5 +3,5 @@ variable "test_number" {
 }
 
 variable "backend_version" {
-  type = number 
+  type = string 
 }

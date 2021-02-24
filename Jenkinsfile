@@ -36,6 +36,20 @@ pipeline {
         //         }
         //     }
         // }
+        stage ('Update Image Tags') {
+            steps {
+                withDockerRegistry([ credentialsId: "dockerhub-credentials", url: "" ]) {
+                    def backendImage = docker.image("hsndocker/backend:${env.BUILD_ID}")
+                    backendImage.push("hsndocker/backend:latest")
+
+                    def nginxImage = docker.image("hsndocker/backend-nginx:${env.BUILD_ID}")
+                    nginxImage.push("hsndocker/backend-nginx:latest")
+
+                    def postgresImage = docker.image("hsndocker/backend-postgres:${env.BUILD_ID}")
+                    postgresImage.push("hsndocker/backend-postgres:latest")
+                }
+            }
+        }
         // stage('Invoke Deployment to Production') {
         //     steps {
         //         build job: 'engineerx-deployment', parameters: [

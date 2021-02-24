@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     // agent {
     //     docker {
     //         image 'hsndocker/cluster-control:latest'
@@ -31,7 +32,7 @@ pipeline {
         //     }
         // }
         stage ('Update Image Tags') {
-            agent any 
+             
             steps {
                 script {
                     withDockerRegistry([ credentialsId: "dockerhub-repo", url: "" ]) {

@@ -1,10 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'hsndocker/cluster-control:latest'
-            args '-u root:root -v /home/hossein/.kube:/root/.kubecopy:ro -v /home/hossein/.minikube:/root/.minikube:ro'
-        }
-    }
+    // agent {
+    //     docker {
+    //         image 'hsndocker/cluster-control:latest'
+    //         args '-u root:root -v /home/hossein/.kube:/root/.kubecopy:ro -v /home/hossein/.minikube:/root/.minikube:ro'
+    //     }
+    // }
     parameters {
         string(name: 'BACKEND_VERSION', defaultValue: 'latest')
     }
@@ -31,6 +31,7 @@ pipeline {
         //     }
         // }
         stage ('Update Image Tags') {
+            agent any 
             steps {
                 script {
                     withDockerRegistry([ credentialsId: "dockerhub-repo", url: "" ]) {

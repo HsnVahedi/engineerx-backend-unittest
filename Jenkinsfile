@@ -10,7 +10,10 @@ pipeline {
     }
     stages {
         stage('Test') {
-            docker login
+            steps {
+                sh 'docker login'
+            }
+            
         }
         // stage('Configure kubectl and terraform') {
         //     steps {

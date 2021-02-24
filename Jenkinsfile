@@ -37,13 +37,13 @@ pipeline {
                 script {
                     withDockerRegistry([ credentialsId: "dockerhub-repo", url: "" ]) {
                         def backendImage = docker.image("hsndocker/backend:${env.BUILD_ID}")
-                        backendImage.push("hsndocker/backend:latest")
+                        backendImage.push("latest")
 
                         def nginxImage = docker.image("hsndocker/backend-nginx:${env.BUILD_ID}")
-                        nginxImage.push("hsndocker/backend-nginx:latest")
+                        nginxImage.push("latest")
 
                         def postgresImage = docker.image("hsndocker/backend-postgres:${env.BUILD_ID}")
-                        postgresImage.push("hsndocker/backend-postgres:latest")
+                        postgresImage.push("latest")
                     }
                 }
                 

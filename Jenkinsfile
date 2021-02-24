@@ -33,7 +33,7 @@ pipeline {
         stage ('Update Image Tags') {
             steps {
                 script {
-                    withDockerRegistry([ credentialsId: "dockerhub-credentials", url: "" ]) {
+                    withDockerRegistry([ credentialsId: "dockerhub-repo", url: "" ]) {
                         def backendImage = docker.image("hsndocker/backend:${env.BUILD_ID}")
                         backendImage.push("hsndocker/backend:latest")
 

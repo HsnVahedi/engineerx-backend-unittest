@@ -95,7 +95,6 @@ resource "kubernetes_pod" "unittest" {
         sub_path   = "postgres"
       }
 
-      #   image_pull_policy = "Never"
     }
   }
 }

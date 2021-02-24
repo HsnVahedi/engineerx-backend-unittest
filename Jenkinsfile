@@ -9,12 +9,6 @@ pipeline {
         string(name: 'BACKEND_VERSION', defaultValue: 'latest')
     }
     stages {
-        stage('Test') {
-            steps {
-                sh 'docker login'
-            }
-            
-        }
         // stage('Configure kubectl and terraform') {
         //     steps {
         //         sh 'cd /root && cp -r .kubecopy .kube'

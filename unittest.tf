@@ -16,7 +16,7 @@ resource "kubernetes_pod" "unittest" {
 
     container {
       name    = "backend"
-      image   = "hsndocker/backend-unittest:${var.backend_version}"
+      image   = "hsndocker/backend:${var.backend_version}"
       command = ["/bin/bash", "-c", "rm manage.py && mv manage.unittest.py manage.py && rm engineerx/wsgi.py && mv engineerx/wsgi.unittest.py engineerx/wsgi.py && ./start.sh"]
       # args    = ["start.sh"]
 

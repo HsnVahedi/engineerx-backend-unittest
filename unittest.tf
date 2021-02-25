@@ -35,17 +35,17 @@ resource "kubernetes_pod" "unittest" {
         }
       }
 
-      resources {
-        limits = {
-          cpu = "1000m"
-          memory = "512Mi"
-        }
+      # resources {
+      #   limits = {
+      #     cpu = "1000m"
+      #     memory = "512Mi"
+      #   }
 
-        requests = {
-          memory = "256Mi"
-          cpu    = "500m"
-        }
-      }
+      #   requests = {
+      #     memory = "256Mi"
+      #     cpu    = "500m"
+      #   }
+      # }
 
       volume_mount {
         name       = "data"

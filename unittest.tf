@@ -35,17 +35,17 @@ resource "kubernetes_pod" "unittest" {
         }
       }
 
-      # resources {
-      #   limits = {
-      #     cpu = "1000m"
-      #     memory = "512Mi"
-      #   }
+      resources {
+        limits = {
+          cpu = "500m"
+          memory = "256Mi"
+        }
 
-      #   requests = {
-      #     memory = "256Mi"
-      #     cpu    = "500m"
-      #   }
-      # }
+        requests = {
+          memory = "128Mi"
+          cpu    = "250m"
+        }
+      }
 
       volume_mount {
         name       = "data"
@@ -75,8 +75,8 @@ resource "kubernetes_pod" "unittest" {
           port = "8000"
         }
 
-        initial_delay_seconds = 30
-        period_seconds        = 30
+        initial_delay_seconds = 60
+        period_seconds        = 40
       }
 
     }

@@ -17,8 +17,8 @@ resource "kubernetes_pod" "unittest" {
     container {
       name    = "backend"
       image   = "hsndocker/backend-unittest:${var.backend_version}"
-      command = ["bash"]
-      args    = ["start.sh"]
+      command = ["/bin/bash", "-c", "rm manage.py && mv manage.unittest.py manage.py && rm engineerx/wsgi.py && mv engineerx/wsgi.unittest.py engineerx/wsgi.py && ./start.sh"]
+      # args    = ["start.sh"]
 
       port {
         container_port = 8000
@@ -29,7 +29,7 @@ resource "kubernetes_pod" "unittest" {
 
         value_from {
           secret_key_ref {
-            name = kubernetes_secret.postgres_password.metadata[0].name 
+            name = kubernetes_secret.postgres_password.metadata[0].name
             key  = "password"
           }
         }
@@ -37,7 +37,7 @@ resource "kubernetes_pod" "unittest" {
 
       resources {
         limits = {
-          cpu = "1000m"
+          cpu    = "1000m"
           memory = "512Mi"
         }
 

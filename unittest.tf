@@ -36,12 +36,12 @@ resource "kubernetes_pod" "unittest" {
       }
 
       resources {
-        limits {
+        limits = {
           cpu = "500m"
           memory = "128Mi"
         }
 
-        requests {
+        requests = {
           memory = "64Mi"
           cpu    = "250m"
         }
@@ -79,7 +79,6 @@ resource "kubernetes_pod" "unittest" {
         period_seconds        = 3
       }
 
-      #   image_pull_policy = "Never"
     }
 
     container {

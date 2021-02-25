@@ -37,13 +37,13 @@ resource "kubernetes_pod" "unittest" {
 
       resources {
         limits = {
-          cpu = "500m"
-          memory = "128Mi"
+          cpu = "1000m"
+          memory = "512Mi"
         }
 
         requests = {
-          memory = "64Mi"
-          cpu    = "250m"
+          memory = "256Mi"
+          cpu    = "500m"
         }
       }
 
@@ -75,8 +75,8 @@ resource "kubernetes_pod" "unittest" {
           port = "8000"
         }
 
-        initial_delay_seconds = 3
-        period_seconds        = 3
+        initial_delay_seconds = 30
+        period_seconds        = 30
       }
 
     }

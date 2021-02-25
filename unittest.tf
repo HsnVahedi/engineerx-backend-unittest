@@ -35,6 +35,17 @@ resource "kubernetes_pod" "unittest" {
         }
       }
 
+      resources {
+        requests {
+          memory = "64Mi"
+          cpu = "250m"
+        }
+        limits {
+          memory = "128Mi"
+          cpu = "500m"
+        }
+      }
+
       volume_mount {
         name       = "data"
         mount_path = "/app/static"

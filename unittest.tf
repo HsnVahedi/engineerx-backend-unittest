@@ -113,7 +113,7 @@ resource "kubernetes_pod" "unittest" {
 resource "kubernetes_secret" "postgres_password" {
   metadata {
     name      = "postgres-password-${var.test_number}"
-    namespace = "unittest"
+    namespace = "backend-unittest"
     labels = {
       role = "deployment"
     }

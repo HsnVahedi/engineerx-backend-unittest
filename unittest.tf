@@ -18,7 +18,6 @@ resource "kubernetes_pod" "unittest" {
       name    = "backend"
       image   = "hsndocker/backend:${var.backend_version}"
       command = ["/bin/bash", "-c", "rm manage.py && mv manage.unittest.py manage.py && rm engineerx/wsgi.py && mv engineerx/wsgi.unittest.py engineerx/wsgi.py && ./start.sh"]
-      # args    = ["start.sh"]
 
       port {
         container_port = 8000

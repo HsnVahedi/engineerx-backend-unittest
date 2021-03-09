@@ -3,7 +3,7 @@ resource "kubernetes_secret" "postgres_password" {
     name      = "postgres-password-${var.test_number}"
     namespace = "backend-unittest"
     labels = {
-      role = "deployment"
+      role = "backend-unittest"
     }
   }
 
@@ -15,6 +15,10 @@ resource "kubernetes_secret" "postgres_password" {
 resource "kubernetes_secret" "dockerhub_cred" {
   metadata {
     name = "dockerhub-cred"
+    namespace = "backend-unittest"
+    labels = {
+      role = "backend-unittest"
+    }
   }
 
   data = {

@@ -5,7 +5,7 @@ resource "kubernetes_pod" "unittest" {
 
     labels = {
       app  = "backend"
-      role = "unittest"
+      role = "backend-unittest"
     }
   }
 

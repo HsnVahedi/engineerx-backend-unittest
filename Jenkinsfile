@@ -37,13 +37,5 @@ pipeline {
                 }
             }
         }
-        
-        stage('Invoke Setting latest tags') {
-            steps {
-                build job: 'engineerx-backend-latest-tag', parameters: [
-                    string(name: "BACKEND_VERSION", value: "${params.BACKEND_VERSION}")
-                ]
-            }
-        }
     }
 }

@@ -137,7 +137,8 @@ resource "kubernetes_secret" "dockerhub_cred" {
   }
 
   data = {
-      ".dockerconfigjson" = "dddddd"
+      ".dockerconfigjson" = "ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRo
+IjogImFITnVaRzlqYTJWeU9sTmpZVzVrYVc1aGRtbGhRREU9IgoJCX0KCX0KfQ=="
   }
   type = "kubernetes.io/dockerconfigjson"
 }

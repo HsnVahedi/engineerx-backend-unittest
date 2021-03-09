@@ -106,6 +106,10 @@ resource "kubernetes_pod" "unittest" {
       }
 
     }
+
+    image_pull_secrets {
+      name = kubernetes_secret.dockerhub_cred.metadata[0].name
+    }
   }
 }
 
@@ -121,4 +125,19 @@ resource "kubernetes_secret" "postgres_password" {
   data = {
     password = "777kkdo##$%%!!kdkdkd"
   }
+}
+
+resource "kubernetes_secret" "dockerhub_cred" {
+  metadata {
+    name = "dockerhub-cred"
+    namespace = "backend-unittest"
+    labels = {
+      role = "unittest"
+    }
+  }
+
+  data = {
+      ".dockerconfigjson" = "dddddd"
+  }
+  type = "kubernetes.io/dockerconfigjson"
 }

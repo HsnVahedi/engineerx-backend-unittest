@@ -16,6 +16,7 @@ pipeline {
         BACKEND_VERSION = "${params.BACKEND_VERSION}"
         BUILD_ID = "${env.BUILD_ID}"
         REGION = "us-east-2"
+        CLUSTER_NAME = "engineerx"
     }
     stages {
         stage('Providing Access Keys') {

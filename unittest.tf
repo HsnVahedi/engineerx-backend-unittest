@@ -1,11 +1,11 @@
 resource "kubernetes_pod" "unittest" {
   metadata {
     name      = "unittest-${var.test_number}"
-    namespace = "backend-unittest"
+    namespace = "backend-test"
 
     labels = {
       app  = "backend"
-      role = "backend-unittest"
+      role = "backend-test"
     }
   }
 

@@ -105,6 +105,18 @@ resource "kubernetes_pod" "unittest" {
         sub_path   = "postgres"
       }
 
+      resources {
+        limits = {
+          cpu    = "300m"
+          memory = "1024Mi"
+        }
+
+        requests = {
+          memory = "512Mi"
+          cpu    = "200m"
+        }
+      }
+
     }
 
     image_pull_secrets {

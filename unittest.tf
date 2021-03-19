@@ -64,8 +64,8 @@ resource "kubernetes_pod" "unittest" {
           port = "8000"
         }
 
-        initial_delay_seconds = 10
-        period_seconds        = 10
+        initial_delay_seconds = 60
+        period_seconds        = 5
       }
 
       readiness_probe {
@@ -74,8 +74,8 @@ resource "kubernetes_pod" "unittest" {
           port = "8000"
         }
 
-        initial_delay_seconds = 60
-        period_seconds        = 40
+        initial_delay_seconds = 100
+        period_seconds        = 5
       }
 
     }

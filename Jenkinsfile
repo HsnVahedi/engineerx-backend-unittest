@@ -8,6 +8,8 @@ pipeline {
     
     parameters {
         string(name: 'BACKEND_VERSION', defaultValue: 'latest')
+        string(name: 'CLUSTER_NAME', defaultValue: 'engineerx')
+        string(name: 'REGION', defaultValue: 'us-east-2')
     }
     environment {
         ACCESS_KEY_ID = credentials('aws-access-key-id')
@@ -15,8 +17,8 @@ pipeline {
         DOCKERHUB_CRED = credentials('dockerhub-repo')
         BACKEND_VERSION = "${params.BACKEND_VERSION}"
         BUILD_ID = "${env.BUILD_ID}"
-        REGION = "us-east-2"
-        CLUSTER_NAME = "engineerx"
+        REGION = "${params.REGION}"
+        CLUSTER_NAME = "${params.CLUSTER_NAME}"
     }
     stages {
         stage('Providing Access Keys') {

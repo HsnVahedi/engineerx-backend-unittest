@@ -45,6 +45,8 @@ In testing terminology, phrases like `unit tests` and `integration tests` could 
 ## Testing Environment
 Backend tests are run in the kubernetes cluster created during [creating infrastructure](https://github.com/HsnVahedi/engineerx-aws-infrastructure). A pod named `unittest-${var.test_number}` will be created in `backend-test` namespace. Then python [unittests](https://docs.python.org/3/library/unittest.html#module-unittest) are run. [Here is the terraform file](https://github.com/HsnVahedi/engineerx-backend-unittest/blob/main/unittest.tf) which declares `unittest-${var.test_number}` pod.
 
+See the [Jenkinsfile](https://github.com/HsnVahedi/engineerx-backend-unittest/blob/main/Jenkinsfile) for more information.
+
 ## EngineerX code repositories
 
 EngineerX is a big project and consists of several code bases:

@@ -21,7 +21,7 @@
 
 ## Introduction to [EngineerX](http://a8c390f2223364021a14ec3fb45263a7-1113280492.us-east-2.elb.amazonaws.com) project
 
-EngineerX is an open source web application designed for engineers and specialists. It lets them share their ideas, create tutorials, represent themselves, employ other specialists and ...
+[EngineerX](http://a8c390f2223364021a14ec3fb45263a7-1113280492.us-east-2.elb.amazonaws.com) is an open source web application designed for engineers and specialists. It lets them share their ideas, create tutorials, represent themselves, employ other specialists and ...
 
 Currently, The project is at it's first steps and includes a simple but awesome [Content Management System (CMS)](https://en.wikipedia.org/wiki/Content_management_system) that lets content providers to create and manage blog posts.
 

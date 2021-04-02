@@ -34,6 +34,22 @@ resource "kubernetes_pod" "unittest" {
         }
       }
 
+      env {
+        name = "SECRET_KEY"
+
+        value_from {
+          secret_key_ref {
+            name = kubernetes_secret.django_secret_key.metadata[0].name
+            key  = "secret_key"
+          }
+        }
+      }
+
+      env {
+        name = "ALLOWED_HOST"
+        value = "localhost"
+      }
+
       resources {
         limits = {
           cpu    = "1200m"

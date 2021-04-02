@@ -15,19 +15,6 @@ resource "kubernetes_secret" "postgres_password" {
 resource "kubernetes_secret" "django_secret_key" {
   metadata {
     name = "django-secret-key"
-    labels = {
-      role = "deployment"
-    }
-  }
-
-  data = {
-    secret_key = "lksd;flkjasd;lfkajdfhuqkl4848400nvc" 
-  }
-}
-
-resource "kubernetes_secret" "postgres_password" {
-  metadata {
-    name      = "postgres-password-${var.test_number}"
     namespace = "backend-test"
     labels = {
       role = "backend-test"
@@ -35,7 +22,7 @@ resource "kubernetes_secret" "postgres_password" {
   }
 
   data = {
-    password = "777kkdo##$%%!!kdkdkd"
+    secret_key = "lksd;flkjasd;lfkajdfhuqkl4848400nvc" 
   }
 }
 

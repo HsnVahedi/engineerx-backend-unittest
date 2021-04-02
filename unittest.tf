@@ -47,7 +47,7 @@ resource "kubernetes_pod" "unittest" {
 
       env {
         name = "ALLOWED_HOST"
-        value = "localhost"
+        value = "*"
       }
 
       resources {
